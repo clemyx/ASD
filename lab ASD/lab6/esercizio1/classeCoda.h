@@ -29,7 +29,7 @@ class queue{
     //controlla se la coda è vuota
     bool empty() const;
     //crea una coda di numeri interi considerando solo i positivi della coda iniziale
-    void naturali(queue &codaNaturali);
+    void naturali();
     //stampa la coda
     void print();
   private:
