@@ -60,12 +60,17 @@ queue::~queue(){
     delete front;
 }
 
-//crea una nuova coda con numeri interi solo positivi dalla coda iniziale
-void queue::naturali(queue &codaNaturali){
-    for(node *p=front->prev;p!=back;p=p->prev){
-        if(p->value>=0){
-            codaNaturali.enqueue(p->value);
+//crea una nuova coda con numeri interi solo positivi dalla coda iniziale modificandola
+void queue::naturali() {
+    node *p=front->prev;
+    while (p!=back){
+        node *prossimo=p->prev;
+        if (p->value<0) {
+            p->next->prev=p->prev;
+            p->prev->next=p->next;
+            delete p;
         }
+        p=prossimo;
     }
 }
 
